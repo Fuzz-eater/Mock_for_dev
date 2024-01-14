@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mock:
+    build: 
+      context: .
+      dockerfile: ./docker/mock/Dockerfile
+    tty: true
+    volumes:
+      - ./mock:/usr/src/app/
+    ports:
+      - "8080:8080"
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: #password
